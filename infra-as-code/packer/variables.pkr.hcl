@@ -29,7 +29,6 @@ variable "vm_builder" {
     ocpu   = 1
     memory = 2
   }
-
 }
 
 variable "ssh_username" {
