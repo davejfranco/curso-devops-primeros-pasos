@@ -44,3 +44,7 @@ variable "ami_ocid" {
   type    = string
   default = "ocid1.image.oc1.iad.aaaaaaaah3e2jx7bu6katzh4y3bo5hjbnyftarn5sklmwta5by7n4kdbalqa"
 }
+
+variable "docker_api_version" {
+  type = string
+}

@@ -35,6 +35,19 @@ resource "oci_core_instance" "web_1" {
   }
 
   preserve_boot_volume = false
+
+  connection {
+    type        = "ssh"
+    host        = "${self.public_ip}"
+    user        = "opc"
+    private_key = tls_private_key.key.private_key_openssh
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "docker run --name api -d -p 80:8080 davejfranco/python-fast-api:${var.docker_api_version}",
+    ]
+  }
 }
 
 # resource "oci_core_instance" "web_2" {
@@ -65,6 +78,7 @@ resource "oci_core_instance" "web_1" {
 #   #ssh key
 #   metadata = {
 #     ssh_authorized_keys = tls_private_key.key.public_key_openssh
+#     user_data = "${base64encode(data.template_file.cloud_init.rendered)}"
 #   }
 
 #   preserve_boot_volume = false
