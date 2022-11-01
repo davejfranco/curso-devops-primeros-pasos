@@ -1,0 +1,3 @@
+[submodule "python-fastapi-demo"]
+	path = python-fastapi-demo
+	url = git@github.com:davejfranco/python-fastapi-demo.git

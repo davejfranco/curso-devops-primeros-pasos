@@ -1,2 +1,10 @@
-__pycache__/
- *.pyc
+*.pkrvars.hcl
+*.sol
+*.rb
+infra-as-code/terraform/oci/.terraform
+infra-as-code/terraform/oci/.terraform.lock.hcl
+infra-as-code/terraform/oci/ssh-key.pem
+infra-as-code/terraform/oci/terraform.tfstate
+infra-as-code/terraform/oci/terraform.tfstate.backup
+infra-as-code/terraform/oci/.terraform.tfstate.lock.info
+infra-as-code/terraform/oci/vars.tfvars
