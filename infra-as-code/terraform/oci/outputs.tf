@@ -10,3 +10,7 @@ output "web1_public_ip" {
 output "web2_public_ip" {
   value = oci_core_instance.web_2.public_ip
 }
+
+output "load_balancer_public_ip" {
+  value = oci_load_balancer.lb.ip_address_details
+}
