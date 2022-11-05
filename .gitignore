@@ -1,6 +1,10 @@
 *.pkrvars.hcl
 *.sol
 *.rb
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
 infra-as-code/terraform/oci/.terraform
 infra-as-code/terraform/oci/.terraform.lock.hcl
 infra-as-code/terraform/oci/ssh-key.pem
