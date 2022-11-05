@@ -45,7 +45,7 @@ resource "oci_core_instance" "web_1" {
 
   provisioner "remote-exec" {
     inline = [
-      "docker run --name api -d -p 80:8080 davejfranco/python-fast-api:${var.docker_api_version}",
+      "docker run --name api -d -p 80:8080 ${var.docker_image}:${var.docker_api_version}",
     ]
   }
 }
@@ -91,7 +91,7 @@ resource "oci_core_instance" "web_2" {
 
   provisioner "remote-exec" {
     inline = [
-      "docker run --name api -d -p 80:8080 davejfranco/python-fast-api:${var.docker_api_version}",
+      "docker run --name api -d -p 80:8080  ${var.docker_image}:${var.docker_api_version}",
     ]
   }
 }
