@@ -47,4 +47,10 @@ variable "ami_ocid" {
 
 variable "docker_api_version" {
   type = string
+  default = "latest"
+}
+
+variable "docker_image" {
+  type = string
+  default = "davejfranco/python-fast-api"
 }
