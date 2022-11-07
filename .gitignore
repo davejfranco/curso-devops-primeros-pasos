@@ -1,6 +1,7 @@
 *.pkrvars.hcl
 *.sol
 *.rb
+.vagrant
 .terraform/
 .terraform.lock.hcl
 terraform.tfstate

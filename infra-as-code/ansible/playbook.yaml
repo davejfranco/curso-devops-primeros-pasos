@@ -1,0 +1,41 @@
+---
+- name: Install webserver
+  hosts: all
+  become: yes
+
+  tasks:
+  
+  - name: Update motd
+    template:
+      src: motd.j2
+      dest: /etc/motd
+  
+  - name: Upgrade all packages
+    dnf:
+      name: "*"
+      state: latest
+  
+  - name: Add Docker repo
+    command: dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+  
+  - name: Remove runc
+    dnf:
+      name: runc
+      state: absent
+  
+  - name: Install docker-ce
+    dnf:
+      name: docker-ce
+      state: present
+  
+  - name: Enable docker service
+    systemd:
+      name: docker.service
+      state: started
+      enabled: yes
+  
+  - name: Adding user {{ ansible_user }}  
+    user: 
+        name={{ ansible_user }}
+        groups=docker
+        append=yes
